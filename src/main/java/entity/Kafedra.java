@@ -63,6 +63,7 @@ public class Kafedra {
         return "Kafedra{" +
                 "idKafedra=" + idKafedra +
                 ", kafedraName='" + kafedraName + '\'' +
+                ", faculty=" + faculty +
                 '}';
     }
 }

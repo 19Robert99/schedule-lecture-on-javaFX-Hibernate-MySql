@@ -18,8 +18,8 @@ public class Discipline {
     @JoinColumn(name = "idLecture", nullable = false)
     private Lecturer lecturer;
 
-   // @OneToOne(mappedBy = "discipline")
-   // private CurrentLesson currentLesson;
+    // @OneToOne(mappedBy = "discipline")
+    // private CurrentLesson currentLesson;
 
     public Discipline() {
     }
@@ -53,6 +53,7 @@ public class Discipline {
         return "Discipline{" +
                 "idDiscipline=" + idDiscipline +
                 ", disciplineName='" + disciplineName + '\'' +
+                ", lecturer=" + lecturer +
                 '}';
     }
 }

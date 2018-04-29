@@ -7,13 +7,15 @@ import javax.persistence.*;
 public class ClassRoom {
 
     @Id
-    @Column(name = "ClassRoomNum")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long classRoomNum;
+    @Column(name = "idClassRoom")
+    private int idClassRoom;
+    @Column(name = "ClassRoomNum", nullable = false)
+    private int classRoomNum;
     @Column(name = "Korpus", nullable = false)
     private String korpus;
     @Column(name = "PlaceCount", nullable = false)
-    private long placeCount;
+    private int placeCount;
 
     //@OneToOne(mappedBy = "classRoom")
     //private CurrentLesson currentLesson;
@@ -21,11 +23,19 @@ public class ClassRoom {
     public ClassRoom() {
     }
 
+    public int getIdClassRoom() {
+        return idClassRoom;
+    }
+
+    public void setIdClassRoom(int idClassRoom) {
+        this.idClassRoom = idClassRoom;
+    }
+
     public long getClassRoomNum() {
         return classRoomNum;
     }
 
-    public void setClassRoomNum(long classRoomNum) {
+    public void setClassRoomNum(int classRoomNum) {
         this.classRoomNum = classRoomNum;
     }
 
@@ -41,7 +51,7 @@ public class ClassRoom {
         return placeCount;
     }
 
-    public void setPlaceCount(long placeCount) {
+    public void setPlaceCount(int placeCount) {
         this.placeCount = placeCount;
     }
 

@@ -9,7 +9,7 @@ public class Lecturer {
     @Id
     @Column(name = "idLecture")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long idLecture;
+    private int idLecture;
     @Column(name = "FIO", nullable = false)
     private String fio;
     @Column (name = "Position", nullable = false)
@@ -38,7 +38,7 @@ public class Lecturer {
         return idLecture;
     }
 
-    public void setIdLecture(long idLecture) {
+    public void setIdLecture(int idLecture) {
         this.idLecture = idLecture;
     }
 
@@ -72,6 +72,7 @@ public class Lecturer {
                 "idLecture=" + idLecture +
                 ", fio='" + fio + '\'' +
                 ", position='" + position + '\'' +
+                ", kafedra=" + kafedra +
                 '}';
     }
 }

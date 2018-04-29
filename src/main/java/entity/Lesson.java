@@ -1,5 +1,6 @@
 package entity;
 
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -60,7 +61,7 @@ public class Lesson {
         return "Lesson{" +
                 "idLesson=" + idLesson +
                 ", lessonNum=" + lessonNum +
-                ", lessonStart=" + lessonStart +
+                ", lessonStart='" + lessonStart + '\'' +
                 ", date=" + date +
                 '}';
     }

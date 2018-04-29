@@ -1,7 +1,6 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "CurrentLessons")
@@ -11,25 +10,16 @@ public class CurrentLesson {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idCurLes;
 
-   // @ManyToMany(mappedBy = "currentLessons")
-   // private Set<StudGroup> studGroup;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "StudGr_CurLes",
-            joinColumns = @JoinColumn(name = "idCurLes"),
-            inverseJoinColumns = @JoinColumn(name = "idStudGroup")
-    )
-    private Set<StudGroup> studGroup;
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "idStudGroup", nullable = false)
+    private StudGroup studGroup;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idLesson", nullable = false)
     private Lesson lesson;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ClassRoomNum", nullable = false)
+    @JoinColumn(name = "idClassRoom", nullable = false)
     private ClassRoom classRoom;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -65,11 +55,11 @@ public class CurrentLesson {
         this.discipline = discipline;
     }
 
-    public Set<StudGroup> getStudGroup() {
+    public StudGroup getStudGroup() {
         return studGroup;
     }
 
-    public void setStudGroup(Set<StudGroup> studGroup) {
+    public void setStudGroup(StudGroup studGroup) {
         this.studGroup = studGroup;
     }
 
@@ -84,7 +74,11 @@ public class CurrentLesson {
     @Override
     public String toString() {
         return "CurrentLesson{" +
-                "idCueLes=" + idCurLes +
+                "idCurLes=" + idCurLes +
+                ", studGroup=" + studGroup +
+                ", lesson=" + lesson +
+                ", classRoom=" + classRoom +
+                ", discipline=" + discipline +
                 '}';
     }
 }

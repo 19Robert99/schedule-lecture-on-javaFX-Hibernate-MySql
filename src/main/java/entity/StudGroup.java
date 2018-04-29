@@ -22,12 +22,7 @@ public class StudGroup {
     @JoinColumn(name = "idDirection", nullable = false)
     private Direction direction;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "StudGr_CurLes",
-            joinColumns = @JoinColumn(name = "idStudGroup"),
-            inverseJoinColumns = @JoinColumn(name = "idCurLes")
-    )
+    @OneToMany(mappedBy = "studGroup")
     private Set<CurrentLesson> currentLessons;
 
     public Direction getDirection() {
@@ -87,7 +82,8 @@ public class StudGroup {
                 "idStudGroup=" + idStudGroup +
                 ", groupNum=" + groupNum +
                 ", course=" + course +
-                ", stutCount=" + studCount +
+                ", studCount=" + studCount +
+                ", direction=" + direction +
                 '}';
     }
 }

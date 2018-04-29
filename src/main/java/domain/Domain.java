@@ -4,11 +4,9 @@ import businesslogic.HibernateUtil;
 import entity.*;
 import service.*;
 
+
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Domain {
     public static  void main(String [] args) throws SQLException {
@@ -31,7 +29,7 @@ public class Domain {
         kafedra.setFaculty(faculty);
 
         Lecturer lecturer = new Lecturer();
-        lecturer.setIdLecture(001);
+        lecturer.setIdLecture(101);
         lecturer.setFio("Рублев И.С.");
         lecturer.setPosition("Старший преподаватель");
         lecturer.setKafedra(kafedra);
@@ -46,7 +44,7 @@ public class Domain {
 
 
         StudGroup studGroup = new StudGroup();
-        studGroup.setCourse(3);
+        studGroup.setCourse(4);
         studGroup.setGroupNum(2);
         studGroup.setStudCount(18);
         studGroup.setDirection(direction);
@@ -60,7 +58,7 @@ public class Domain {
         lesson.setDate(new java.sql.Date(calendar.getTime().getTime()));
 
         ClassRoom classRoom = new ClassRoom();
-        classRoom.setClassRoomNum(201);
+        classRoom.setClassRoomNum(257);
         classRoom.setKorpus("Лабораторный корпус");
         classRoom.setPlaceCount(65);
 
@@ -68,6 +66,7 @@ public class Domain {
         currentLesson.setLesson(lesson);
         currentLesson.setClassRoom(classRoom);
         currentLesson.setDiscipline(discipline);
+        currentLesson.setStudGroup(studGroup);
 
         Set<Kafedra> kafedras = new HashSet<Kafedra>();
         kafedras.add(kafedra);
@@ -87,13 +86,13 @@ public class Domain {
 
        /* Set<CurrentLesson> currentLessons = new HashSet<CurrentLesson>();
         currentLessons.add(currentLesson);
-        studGroup.setCurrentLessons(currentLessons);*/
+        studGroup.setCurrentLessons(currentLessons);
 
         Set<StudGroup> studGroups = new HashSet<StudGroup>();
         studGroups.add(studGroup);
         currentLesson.setStudGroup(studGroups);
 
-
+*/
 
 
         facultyService.add(faculty);
@@ -106,7 +105,16 @@ public class Domain {
         classRoomService.add(classRoom);
         currentLessonService.add(currentLesson);
 
-        System.out.println(currentLessonService.getAll());
+        //System.out.println(new CurrentLessonService().getAll());
+        //System.out.println(currentLesson1);
+        List<CurrentLesson> list = new ArrayList<CurrentLesson>();
+        list = new CurrentLessonService().getAll();
+        //list.subList(1,1);
+        //System.out.println(list.);
+
+        for (int i=0;i<list.size();i++){
+            System.out.println(i+": "+list.get(i));
+        }
 
         HibernateUtil.shutdown();
     }

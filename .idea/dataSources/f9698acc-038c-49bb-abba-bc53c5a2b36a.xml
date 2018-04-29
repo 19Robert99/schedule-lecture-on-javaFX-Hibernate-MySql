@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="obd@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="obd">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="android_api"/>
+    <schema id="4" parent="1" name="client"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="session_android"/>
+    <schema id="9" parent="1" name="star"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="test"/>
+    <schema id="12" parent="1" name="wordpress"/>
+    <table id="13" parent="2" name="classroom"/>
+    <table id="14" parent="2" name="currentlessons"/>
+    <table id="15" parent="2" name="direction"/>
+    <table id="16" parent="2" name="discipline"/>
+    <table id="17" parent="2" name="faculty"/>
+    <table id="18" parent="2" name="kafedra"/>
+    <table id="19" parent="2" name="lecturer"/>
+    <table id="20" parent="2" name="lesson"/>
+    <table id="21" parent="2" name="studgr_curles"/>
+    <table id="22" parent="2" name="studgroup"/>
+    <column id="23" parent="13" name="ClassRoomNum">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="13" name="Korpus">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="13" name="PlaceCount">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="26" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ClassRoomNum</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="14" name="idCurLes">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="14" name="ClassRoomNum">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="14" name="idDiscipline">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="14" name="idLesson">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="31" parent="14" name="FK1gl9916smk5m93dmrw4l8iggp">
+      <ColNames>idDiscipline</ColNames>
+    </index>
+    <index id="32" parent="14" name="FK8gktxtyf5d6jt8n5hot3hhca0">
+      <ColNames>ClassRoomNum</ColNames>
+    </index>
+    <index id="33" parent="14" name="FKpdeo3r4lg17uhyd07pnsfba6x">
+      <ColNames>idLesson</ColNames>
+    </index>
+    <key id="34" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idCurLes</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="15" name="idDirection">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="15" name="DirectionName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="15" name="idFaculty">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="38" parent="15" name="FKd1e85wrqnv820k1acch7ni9jj">
+      <ColNames>idFaculty</ColNames>
+    </index>
+    <key id="39" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idDirection</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="16" name="idDiscipline">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="16" name="DisciplineName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="16" name="idLecture">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="16" name="FK9mjia0h41ljew0hc80erh77y6">
+      <ColNames>idLecture</ColNames>
+    </index>
+    <key id="44" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idDiscipline</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="17" name="idFaculty">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="17" name="FacultyName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="47" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idFaculty</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="48" parent="18" name="idKafedra">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="18" name="KafedraName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="18" name="idFaculty">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="51" parent="18" name="FK9c9mi6htid029lq9od8vd3cwq">
+      <ColNames>idFaculty</ColNames>
+    </index>
+    <key id="52" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idKafedra</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="19" name="idLecture">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="54" parent="19" name="FIO">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="19" name="Position">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="19" name="idKafedra">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="57" parent="19" name="FK6ub3o4r0t1fhqwkpg60dt7v4l">
+      <ColNames>idKafedra</ColNames>
+    </index>
+    <key id="58" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idLecture</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="59" parent="20" name="idLesson">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="60" parent="20" name="Date">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="20" name="LessonNum">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="20" name="LessonStart">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="63" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idLesson</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="64" parent="21" name="StudGroup_idStudGroup">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="21" name="CurrentLessons_idCurLes">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="66" parent="21" name="FKr3l3lrtq68enj80nrres26esp">
+      <ColNames>CurrentLessons_idCurLes</ColNames>
+    </index>
+    <key id="67" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>StudGroup_idStudGroup
+CurrentLessons_idCurLes</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="68" parent="22" name="idStudGroup">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="69" parent="22" name="Course">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="22" name="GroupNum">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="22" name="StudCount">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="22" name="idDirection">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="73" parent="22" name="FK6694dpqmn9c36ef6a97u3u3h8">
+      <ColNames>idDirection</ColNames>
+    </index>
+    <key id="74" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idStudGroup</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

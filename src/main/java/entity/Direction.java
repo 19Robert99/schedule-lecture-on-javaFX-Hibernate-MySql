@@ -1,5 +1,6 @@
 package entity;
 
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -60,6 +61,7 @@ public class Direction {
         return "Direction{" +
                 "idDirection=" + idDirection +
                 ", directionName='" + directionName + '\'' +
+                ", faculty=" + faculty +
                 '}';
     }
 }
