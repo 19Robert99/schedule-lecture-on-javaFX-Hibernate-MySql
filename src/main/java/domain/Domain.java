@@ -9,6 +9,17 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class Domain {
+    private static List<CurrentLesson> currentLessonList = new ArrayList<CurrentLesson>();
+    private static List<Kafedra> kafList = new ArrayList<Kafedra>();
+    private static List<Lecturer> lectList = new ArrayList<Lecturer>();
+    private static List<Discipline> dispList = new ArrayList<Discipline>();
+    private static List<Direction> dirList = new ArrayList<Direction>();
+    private static List<StudGroup> studgrList = new ArrayList<StudGroup>();
+    private static List<Lesson> lessList = new ArrayList<Lesson>();
+    private static List<ClassRoom> classfacList = new ArrayList<ClassRoom>();
+
+
+
     public static  void main(String [] args) throws SQLException {
         ClassRoomService classRoomService = new ClassRoomService();
         CurrentLessonService currentLessonService = new CurrentLessonService();
@@ -30,7 +41,7 @@ public class Domain {
 
         Lecturer lecturer = new Lecturer();
         lecturer.setIdLecture(101);
-        lecturer.setFio("Рублев И.С.");
+        lecturer.setFio("Рублев И.с.");
         lecturer.setPosition("Старший преподаватель");
         lecturer.setKafedra(kafedra);
 
@@ -45,22 +56,25 @@ public class Domain {
 
         StudGroup studGroup = new StudGroup();
         studGroup.setCourse(4);
-        studGroup.setGroupNum(2);
-        studGroup.setStudCount(18);
+        studGroup.setGroupNum(3);
+        studGroup.setStudCount(20);
         studGroup.setDirection(direction);
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(1939, Calendar.MAY, 1);
 
         Lesson lesson = new Lesson();
-        lesson.setLessonNum(1);
-        lesson.setLessonStart("08:30");
+        lesson.setLessonNum(2);
+        lesson.setLessonStart("13:00");
         lesson.setDate(new java.sql.Date(calendar.getTime().getTime()));
+        lesson.setStart(5);
+        lesson.setEnd(14);
+        lesson.setDayOfTheWeek("Monday");
 
         ClassRoom classRoom = new ClassRoom();
-        classRoom.setClassRoomNum(257);
-        classRoom.setKorpus("Лабораторный корпус");
-        classRoom.setPlaceCount(65);
+        classRoom.setClassRoomNum(212);
+        classRoom.setKorpus("Старый корпус");
+        classRoom.setPlaceCount(50);
 
         CurrentLesson currentLesson = new CurrentLesson();
         currentLesson.setLesson(lesson);
@@ -95,7 +109,7 @@ public class Domain {
 */
 
 
-        facultyService.add(faculty);
+        /*facultyService.add(faculty);
         kafedraService.add(kafedra);
         lecturerService.add(lecturer);
         disciplineService.add(discipline);
@@ -103,19 +117,12 @@ public class Domain {
         studGroupService.add(studGroup);
         lessonService.add(lesson);
         classRoomService.add(classRoom);
-        currentLessonService.add(currentLesson);
+        currentLessonService.add(currentLesson);*/
 
-        //System.out.println(new CurrentLessonService().getAll());
-        //System.out.println(currentLesson1);
-        List<CurrentLesson> list = new ArrayList<CurrentLesson>();
-        list = new CurrentLessonService().getAll();
-        //list.subList(1,1);
-        //System.out.println(list.);
-
-        for (int i=0;i<list.size();i++){
-            System.out.println(i+": "+list.get(i));
-        }
-
+/*        facList = new FacultyService().getAll();
+        dirList = new DirectionService().getAll();*/
+        //currentLessonList = currentLessonService.getAll();
+        System.out.println("1"+currentLessonService.getById(1L));
         HibernateUtil.shutdown();
     }
 }

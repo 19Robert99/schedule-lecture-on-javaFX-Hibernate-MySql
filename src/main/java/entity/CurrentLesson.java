@@ -31,6 +31,7 @@ public class CurrentLesson {
 
 
 
+
     public Lesson getLesson() {
         return lesson;
     }
@@ -74,7 +75,7 @@ public class CurrentLesson {
     @Override
     public String toString() {
         return "CurrentLesson{" +
-                "idCurLes=" + idCurLes +
+               "idCurLes=" + idCurLes +
                 ", studGroup=" + studGroup +
                 ", lesson=" + lesson +
                 ", classRoom=" + classRoom +

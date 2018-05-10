@@ -10,7 +10,7 @@ public class ClassRoom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idClassRoom")
     private int idClassRoom;
-    @Column(name = "ClassRoomNum", nullable = false)
+    @Column(name = "ClassRoomNum", nullable = false)//unique = true
     private int classRoomNum;
     @Column(name = "Korpus", nullable = false)
     private String korpus;
@@ -58,7 +58,8 @@ public class ClassRoom {
     @Override
     public String toString() {
         return "ClassRoom{" +
-                "classRoomNum=" + classRoomNum +
+                "idClassRoom=" + idClassRoom +
+                ", classRoomNum=" + classRoomNum +
                 ", korpus='" + korpus + '\'' +
                 ", placeCount=" + placeCount +
                 '}';

@@ -18,6 +18,7 @@ public class StudGroup {
     @Column(name = "StudCount", nullable = false)
     private  long studCount;
 
+
     @ManyToOne
     @JoinColumn(name = "idDirection", nullable = false)
     private Direction direction;

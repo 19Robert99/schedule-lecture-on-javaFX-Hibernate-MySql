@@ -22,17 +22,29 @@ public class CurrentLessonService extends SessionUtil implements CurrentLessonDa
     public List<CurrentLesson> getAll() throws SQLException {
         openTransactionSession();
 
-        String sql = "SELECT * FROM (currentlessons \n" +
-                "INNER JOIN studgroup ON currentlessons.idStudGroup = studgroup.idStudGroup)\n" +
-                "INNER JOIN direction ON studgroup.idDirection = direction.idDirection\n" +
-                "WHERE direction.idFaculty = 1\n";
+        String sql = "SELECT * FROM currentlessons";
 
         Session session = getSession();
         Query query = session.createNativeQuery(sql).addEntity(CurrentLesson.class);
-        List<CurrentLesson> CurrentLessonList = query.list();
 
+
+        List<CurrentLesson> CurrentLessonList = query.list();
         //close session with a transaction
         closeTransactionSession();
+        for (CurrentLesson obj : CurrentLessonList){
+
+            System.out.println("2: "+obj.getDiscipline().getLecturer().getFio());
+            System.out.println("2: "+obj.getDiscipline().getDisciplineName());
+            System.out.println("2: "+obj.getClassRoom().getClassRoomNum());
+            System.out.println("2: "+obj.getLesson().getDayOfTheWeek());
+            System.out.println("2: "+obj.getLesson().getLessonNum());
+            System.out.println("2: "+obj.getLesson().getStart());
+            System.out.println("2: "+obj.getLesson().getEnd());
+            System.out.println("2: "+obj.getStudGroup().getDirection().getFaculty().getFacultyName());
+            System.out.println("2: "+obj.getStudGroup().getDirection().getDirectionName());
+            System.out.println("2: "+obj.getStudGroup().getCourse());
+            System.out.println("2: "+obj.getStudGroup().getGroupNum());
+        }
 
         return CurrentLessonList;
     }
@@ -50,6 +62,19 @@ public class CurrentLessonService extends SessionUtil implements CurrentLessonDa
 
         //close session with a transaction
         closeTransactionSession();
+        System.out.println("2//////: "+currentLesson.getClassRoom().toString());
+            System.out.println("2: "+currentLesson.getDiscipline().getLecturer().getFio());
+            System.out.println("2: "+currentLesson.getDiscipline().getDisciplineName());
+            System.out.println("2: "+currentLesson.getClassRoom().getClassRoomNum());
+            System.out.println("2: "+currentLesson.getLesson().getDayOfTheWeek());
+            System.out.println("2: "+currentLesson.getLesson().getLessonNum());
+            System.out.println("2: "+currentLesson.getLesson().getStart());
+            System.out.println("2: "+currentLesson.getLesson().getEnd());
+            System.out.println("2: "+currentLesson.getStudGroup().getDirection().getFaculty().getFacultyName());
+            System.out.println("2: "+currentLesson.getStudGroup().getDirection().getDirectionName());
+            System.out.println("2: "+currentLesson.getStudGroup().getCourse());
+            System.out.println("2: "+currentLesson.getStudGroup().getGroupNum());
+
 
         return currentLesson;
     }

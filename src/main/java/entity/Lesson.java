@@ -17,11 +17,41 @@ public class Lesson {
     private String lessonStart;
     @Column(name = "Date", nullable = false)
     private Date date;
+    @Column(name = "Start", nullable = false)
+    private int start;
+    @Column(name = "End", nullable = true)
+    private int end;
+    @Column(name = "Day", nullable = false)
+    private String dayOfTheWeek;
 
     //@OneToOne(mappedBy = "lesson")
     //private CurrentLesson currentLesson;
 
     public Lesson() {
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public String getDayOfTheWeek() {
+        return dayOfTheWeek;
+    }
+
+    public void setDayOfTheWeek(String dayOfTheWeek) {
+        this.dayOfTheWeek = dayOfTheWeek;
     }
 
     public Date getDate() {
@@ -63,6 +93,9 @@ public class Lesson {
                 ", lessonNum=" + lessonNum +
                 ", lessonStart='" + lessonStart + '\'' +
                 ", date=" + date +
+                ", start=" + start +
+                ", end=" + end +
+                ", dayOfTheWeek='" + dayOfTheWeek + '\'' +
                 '}';
     }
 }
