@@ -12,7 +12,7 @@ public class Kafedra {
     @Column(name = "idKafedra")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idKafedra;
-    @Column(name = "KafedraName", nullable = false)
+    @Column(name = "KafedraName", nullable = false, unique = true)
     private String kafedraName;
     @ManyToOne
     @JoinColumn(name = "idFaculty", nullable = false)

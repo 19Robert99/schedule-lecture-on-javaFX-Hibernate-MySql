@@ -15,7 +15,7 @@ public class Faculty {
     @Column(name = "idFaculty")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFaculty;
-    @Column(name = "FacultyName", nullable = false)
+    @Column(name = "FacultyName", nullable = false, unique = true)
     private String facultyName;
     @OneToMany(mappedBy = "faculty")
     private Set<Direction> direction;

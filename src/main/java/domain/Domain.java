@@ -109,7 +109,7 @@ public class Domain {
 */
 
 
-        /*facultyService.add(faculty);
+        facultyService.add(faculty);
         kafedraService.add(kafedra);
         lecturerService.add(lecturer);
         disciplineService.add(discipline);
@@ -117,7 +117,7 @@ public class Domain {
         studGroupService.add(studGroup);
         lessonService.add(lesson);
         classRoomService.add(classRoom);
-        currentLessonService.add(currentLesson);*/
+        currentLessonService.add(currentLesson);
 
 /*        facList = new FacultyService().getAll();
         dirList = new DirectionService().getAll();*/

@@ -12,7 +12,7 @@ public class Direction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idDirection;
 
-    @Column(name = "DirectionName", nullable = false)
+    @Column(name = "DirectionName", nullable = false, unique = true)
     private String directionName;
     @ManyToOne
     @JoinColumn(name = "idFaculty", nullable = false)

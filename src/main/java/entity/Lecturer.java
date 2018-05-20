@@ -7,10 +7,10 @@ import java.util.Set;
 @Table(name = "Lecturer")
 public class Lecturer {
     @Id
-    @Column(name = "idLecture")
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "idLecture" ,nullable = false, unique = true)
+    //@GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idLecture;
-    @Column(name = "FIO", nullable = false)
+    @Column(name = "FIO", nullable = false, unique = true)
     private String fio;
     @Column (name = "Position", nullable = false)
     private String position;

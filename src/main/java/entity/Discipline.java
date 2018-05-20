@@ -11,7 +11,7 @@ public class Discipline {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idDiscipline;
 
-    @Column(name = "DisciplineName", nullable = false)
+    @Column(name = "DisciplineName", nullable = false, unique = true)
     private String disciplineName;
 
     @ManyToOne
